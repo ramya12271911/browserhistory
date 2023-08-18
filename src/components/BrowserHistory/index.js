@@ -134,15 +134,21 @@ class BrowserHistory extends Component {
           </div>
         </div>
         <div className="footer">
-          <ul className="list-container">
-            {searchresults.map(eachHistory => (
-              <HistoryItem
-                historyDetails={eachHistory}
-                key={eachHistory.id}
-                deleteHistory={this.deleteHistory}
-              />
-            ))}
-          </ul>
+          {historyList.length < 1 ? (
+            <div>
+              <p className="msg">There is no history to show</p>
+            </div>
+          ) : (
+            <ul className="list-container">
+              {searchresults.map(eachHistory => (
+                <HistoryItem
+                  historyDetails={eachHistory}
+                  key={eachHistory.id}
+                  deleteHistory={this.deleteHistory}
+                />
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     )
